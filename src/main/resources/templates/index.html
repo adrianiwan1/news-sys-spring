@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>artykuly</title>
+</head>
+<body>
+<table>
+    <tbody>
+    <tr th:each="article, iStat : ${articles.content}" th:style="${iStat.odd}? 'font-weight: bold;'"
+        th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <td th:text="${article.getTytul()}"/>
+        <td th:text="${article.getLessTresc()}"/>
+        <td th:text="${article.getDataPublikacji()}"/>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${articles.totalPages > 0}" class="pagination"
+     th:each="pageNumber : ${pageNumbers}">
+    <a th:href="@{/(size=${articles.size},page = ${pageNumber})}"
+       th:text=${pageNumber}
+       th:class="${pageNumber==articles.number + 1} ? active"></a>
+</div>
+</body>
+
+</html>
