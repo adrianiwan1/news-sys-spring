@@ -18,20 +18,22 @@ public class ArticleDisplayService {
     @Autowired
     ArtykulyDAO dao;
 
-    public Page<Artykuly> findPaginated(Pageable pageable){
+    public Page<Artykuly> findPaginated(Pageable pageable) {
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
         int startItem = currentPage * pageSize;
         List<Artykuly> list;
         List<Artykuly> allArticles = dao.getNewestArticles();
-        if(allArticles.size() < startItem){
+        if (allArticles.size() < startItem) {
             list = Collections.emptyList();
-        }else{
-            int toIndex = Math.min(startItem+pageSize,allArticles.size());
-            list = allArticles.subList(startItem,toIndex);
+        } else {
+            int toIndex = Math.min(startItem + pageSize, allArticles.size());
+            list = allArticles.subList(startItem, toIndex);
         }
-        Page<Artykuly> articlePage = new PageImpl<Artykuly>(list, PageRequest.of(currentPage,pageSize),allArticles.size());
-        return articlePage;
+        return new PageImpl<Artykuly>(list, PageRequest.of(currentPage, pageSize), allArticles.size());
     }
 
+    public Artykuly getArticleById(Integer id) {
+        return dao.getOneArcitleById(id);
+    }
 }

@@ -82,7 +82,11 @@ public class Artykuly {
     }
 
     public String getObrazek() {
-        return obrazek;
+        String path = obrazek;
+        if(obrazek != null && path.contains("image")){
+        path = path.substring(path.indexOf("image"));
+        }
+        return path;
     }
 
     public void setObrazek(String obrazek) {
@@ -98,5 +102,6 @@ public class Artykuly {
     }
 
     public String getLessTresc(){ return tresc.length() < 100 ? tresc : tresc.substring(0,100);}
+
 
 }

@@ -1,11 +1,15 @@
 package com.example.newssysspring.entities;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "uzytkownicy")
 public class Uzytkownicy {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -59,7 +63,11 @@ public class Uzytkownicy {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if (password.length() >= 32) {
+            this.password = password;
+        } else {
+            this.password = new BCryptPasswordEncoder().encode(password);
+        }
     }
 
     public String getDataUrodzenia() {
