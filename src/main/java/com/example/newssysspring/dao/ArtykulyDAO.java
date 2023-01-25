@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ArtykulyDAO {
@@ -16,7 +17,8 @@ public class ArtykulyDAO {
 
     public List<Artykuly> getNewestArticles() {
         //zamien z find all na jakies by szukalo od daty
-        return artykulyRepository.findAll(Sort.by(Sort.Direction.DESC, "dataPublikacji"));
+        List<Artykuly> allArticles = artykulyRepository.findAll(Sort.by(Sort.Direction.DESC, "dataPublikacji"));
+        return allArticles.stream().filter(it -> it.getZbanowany() != 1).collect(Collectors.toList());
     }
 
     public Artykuly getOneArcitleById(Integer id) {

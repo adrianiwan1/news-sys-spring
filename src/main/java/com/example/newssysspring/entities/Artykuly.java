@@ -85,6 +85,7 @@ public class Artykuly {
         String path = obrazek;
         if(obrazek != null && path.contains("image")){
         path = path.substring(path.indexOf("image"));
+        path = path.replace("\\","/");
         }
         return path;
     }

@@ -26,10 +26,12 @@ public class UserLoginService {
         if(!new BCryptPasswordEncoder().matches(dto.getPassword(),user.getPassword())){
             return false;
         }
-        session.setAttribute("rola",user.getRola());
+
         session.setAttribute("userId",user.getId());
         session.setAttribute("Login",user.getLogin());
+        session.setAttribute("rola",user.getRola());
 
         return true;
     }
+
 }

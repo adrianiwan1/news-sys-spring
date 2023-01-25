@@ -15,4 +15,8 @@ public class CommentDisplayService {
     public List<Komentarze> getCommentsForArticle(Integer articleId) {
         return dao.getCommentsForArticle(articleId);
     }
+
+    public Komentarze getCommentById(Integer commentId) {
+    return dao.getOneCommentForArticle(commentId);
+    }
 }

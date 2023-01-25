@@ -24,6 +24,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.7.5'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.5'
     implementation group: 'org.springframework.security', name: 'spring-security-core', version: '5.7.5'
+    implementation 'org.jetbrains:annotations:20.1.0'
     compileOnly 'org.webjars:bootstrap:5.2.3'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     runtimeOnly 'com.mysql:mysql-connector-j:8.0.31'

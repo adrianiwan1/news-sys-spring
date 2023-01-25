@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<!--
+    add head section from file
+-->
+<!--
+	24 News by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+<html lang="en" class="no-js">
+<head th:replace="fragments/header" >
+</head>
+
+<body>
+
+<div th:replace="fragments/logo" class="container-fluid">
+</div>
+
+<div th:replace="fragments/menu" class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+</div>
+
+
+<body class="single">
+<div class="wrapper">
+    <div class="inner">
+
+
+        <table id="users" class="table caption-top display">
+            <caption><br></caption>
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Login</th>
+                <th scope="col">Data Urodzenia</th>
+                <th scope="col">Płeć</th>
+                <!--<th scope="col">Województwo</th>-->
+                <th scope="col">powiat</th>
+                <th scope="col">Miejscowość</th>
+                <!--<th scope="col">rola</th>-->
+                <th scope="col">zbanowany</th>
+                <!--<th scope="col">akcja</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="users: ${users}">
+                <td th:text="${users.getId()}">aa</td>
+                <td th:text="${users.getLogin()}">login</td>
+                <td th:text="${users.getDataUrodzenia()}">1984-12-20</td>
+                <td th:text="${users.getPlec()}">Mężczyzna</td>
+                <!--<td th:text="${users.getWojewodzstwo()}">1</td>-->
+                <td th:text="${users.getPowiat()}">1</td>
+                <td th:text="${users.getMiejscowosc()}">limanowa</td>
+                <!--<td th:text="${users.getRola()}">administrator</td>-->
+                <td th:text="${users.getZbanowany()}">NIE</td>
+                <!-- <td>AKCJEE</td>-->
+             </tr>
+
+             </tbody>
+         </table>
+
+     </div>
+ </div>
+ </body>
+
+
+
+
+ <div class="container-fluid fh5co_footer_right_reserved">
+     <div class="container">
+         <div class="row  ">
+             <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
+             <div class="col-12 col-md-6 spdp_right py-4">
+                 <a href="index.html" class="footer_last_part_menu">Home</a>
+                 <a href="Contact_us.html" class="footer_last_part_menu">About</a>
+                 <a href="Contact_us.html" class="footer_last_part_menu">Contact</a>
+                 <a href="blog.html" class="footer_last_part_menu">Latest News</a></div>
+         </div>
+     </div>
+ </div>
+
+ <div class="gototop js-top">
+     <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+ </div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+ <script src="/js/owl.carousel.min.js"></script>
+ <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+<!-- Waypoints -->
+<script src="/js/jquery.waypoints.min.js"></script>
+<!-- Main -->
+<script src="/js/main.js"></script>
+<!-- my JS -->
+<script src="/js/my.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdn.tiny.cloud/1/igeq5tozkkmse1d16cp6v5dkfwpjt6zce6sdhus13o1ji4qf/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+        language: 'pl',
+        min_height: 500,
+        plugins: 'code table lists, preview',
+        menubar: ' edit insert view format table tools help',
+        invalid_elements : 'script',
+        toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+    });
+</script>
+<!-- table -->
+<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#datatablesSimple').DataTable();
+    } );
+</script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script>if (!navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i)){$(window).stellar();}</script>
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#users').DataTable({
+            lengthMenu:false,
+            info: false,
+            paging: false,
+            ordering: true,
+
+        });
+
+    } );
+</script>
+</body>
+
+

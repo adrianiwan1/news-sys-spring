@@ -47,7 +47,7 @@ public class ArticleSaveService {
                 String fileExt = dto.getImage().getOriginalFilename();
                 String newFileName = uuid + ".jpg";
                 byte[] bytes = dto.getImage().getBytes();
-                Path path = Paths.get(".\\src\\main\\resources\\static\\images\\" + newFileName);
+                Path path = Paths.get("./src/main/resources/static/images/" + newFileName);
                 Files.write(path, bytes);
 
                 artykuly.setObrazek(path.toString());
